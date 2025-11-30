@@ -1,0 +1,15 @@
+[2025-11-30 18:43:03] ALERTA GRAVE | Tipo: Sanitaria | ID: e7d7de5a-3562-404d-ae49-3dec3c037888 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 18:46:28] ALERTA GRAVE | Tipo: Trafico | ID: 3bc55feb-8960-4c89-8536-d8508be9f5a1 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 18:47:30] ALERTA GRAVE | Tipo: general | ID: 360e42de-c8b9-4843-a2e4-1594708d521b | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:06:42] ALERTA GRAVE | Tipo: l | ID: cecb115b-ecc4-4925-b393-b6ece0dfac77 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:12:43] ALERTA GRAVE | Tipo: Vehicular (TIMEOUT) | ID: ff239b03-575f-4f1c-8bc9-499c2e749357 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:16:21] ALERTA GRAVE | Tipo: Snaitaria | ID: 3601a422-b110-4993-8f87-6df715800f5b | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:17:20] ALERTA GRAVE | Tipo: Sanitarai | ID: 6aeef3e1-ff17-4b74-84e3-5f50762cac33 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:17:58] ALERTA GRAVE | Tipo: Indefinido (TIMEOUT) | ID: 829913d9-16c9-4014-9f9a-42378db8b0d3 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:22:56] ALERTA GRAVE | Tipo: Sanitaria | ID: b1c34a43-db7a-4481-b3bf-60c4e9f23ef0 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:26:03] ALERTA GRAVE | Tipo: Sanitaria | ID: d3c38735-0311-40a9-a775-ea2ea9bb83fa | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:27:53] ALERTA GRAVE | Tipo: Indefinido (TIMEOUT) | ID: 10a6b1a2-b029-4551-9e52-db96fd2bd2e7 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:30:14] ALERTA GRAVE | Tipo: Trafico | ID: b1401894-2e50-4c50-a892-19bf659f08b4 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:31:52] ALERTA GRAVE | Tipo: Indefinido (TIMEOUT) | ID: e5049287-abe5-403c-8ddc-834ac00697be | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:34:14] ALERTA GRAVE | Tipo: Sanitaria | ID: 7c398af0-7455-4a6f-9287-e75dc3b79991 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2025-11-30 19:35:48] ALERTA GRAVE | Tipo: Indefinido (TIMEOUT) | ID: 8ba6add2-31df-4f21-b544-ef0c1cbab3ec | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
