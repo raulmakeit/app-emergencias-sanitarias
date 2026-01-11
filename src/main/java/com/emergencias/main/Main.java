@@ -17,17 +17,27 @@ public class Main {
         System.out.println("Seleccione el modo de activación:");
         System.out.println("1. Manual (Simula la pulsación de un botón)");
         System.out.println("2. Automático (Simula la activación por un umbral de sensor)");
-        System.out.print("Opción [1/2]: ");
 
-        String choice = scanner.nextLine().trim();
-        boolean isAutomatic;
+        boolean opcionValida = false;
+        boolean isAutomatic = false;
 
-        if ("2".equals(choice)) {
-            isAutomatic = true;
-            System.out.println("Modo seleccionado: AUTOMÁTICO");
-        } else {
-            isAutomatic = false;
-            System.out.println("Modo seleccionado: MANUAL");
+        // BUCLE DE CONTROL DE ERRORES (FIX)
+        while (!opcionValida) {
+            System.out.print("Opción [1/2]: ");
+            String choice = scanner.nextLine().trim();
+
+            if ("2".equals(choice)) {
+                isAutomatic = true;
+                System.out.println("Modo seleccionado: AUTOMÁTICO");
+                opcionValida = true;
+            } else if ("1".equals(choice)) {
+                isAutomatic = false;
+                System.out.println("Modo seleccionado: MANUAL");
+                opcionValida = true;
+            } else {
+                // Control de error: Mensaje y repetición del bucle
+                System.err.println("Error: Entrada no válida. Por favor, introduzca '1' o '2'.");
+            }
         }
 
         manager.startSystem(isAutomatic);
