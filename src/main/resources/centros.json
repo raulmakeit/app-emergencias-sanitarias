@@ -1,0 +1,569 @@
+[
+  {
+    "Código": "1664",
+    "Nombre": "CENTRO DE SALUD CEHEGÍN",
+    "Dirección": "C/ Camino Verde,s/n",
+    "Municipio": "Cehegín",
+    "Teléfono": "968723652",
+    "Latitud": "38.0927154",
+    "Longitud": "-1.7953087"
+  },
+  {
+    "Código": "1660",
+    "Nombre": "CENTRO DE SALUD FORTUNA",
+    "Dirección": "Avda. Juan de la Cierva,s/n",
+    "Municipio": "Fortuna",
+    "Teléfono": "968686392",
+    "Latitud": "38.181250",
+    "Longitud": "-1.127560"
+  },
+  {
+    "Código": "1659",
+    "Nombre": "CENTRO DE SALUD ARCHENA",
+    "Dirección": "C/ Siria,s/n",
+    "Municipio": "Archena",
+    "Teléfono": "968671748",
+    "Latitud": "38.117230",
+    "Longitud": "-1.299450"
+  },
+  {
+    "Código": "1671",
+    "Nombre": "CENTRO DE SALUD ABARÁN",
+    "Dirección": "Avda. La constitucion,s/n",
+    "Municipio": "Abarán",
+    "Teléfono": "968451533",
+    "Latitud": "38.203450",
+    "Longitud": "-1.401230"
+  },
+  {
+    "Código": "1637",
+    "Nombre": "CENTRO DE SALUD BARRIO DEL CARMEN",
+    "Dirección": "C/ Madre Elisea Oliver Molina, s/n",
+    "Municipio": "Murcia",
+    "Teléfono": "968253543",
+    "Latitud": "37.978540",
+    "Longitud": "-1.130450"
+  },
+  {
+    "Código": "1647",
+    "Nombre": "CENTRO DE SALUD BARRIO PERAL",
+    "Dirección": "C/ Ulloa, 6",
+    "Municipio": "Cartagena",
+    "Teléfono": "968314500",
+    "Latitud": "37.621230",
+    "Longitud": "-0.985640"
+  },
+  {
+    "Código": "1631",
+    "Nombre": "CENTRO DE SALUD BENIEL",
+    "Dirección": "C/ Francisco Robles, s/n",
+    "Municipio": "Beniel",
+    "Teléfono": "968602009",
+    "Latitud": "38.045670",
+    "Longitud": "-1.002340"
+  },
+  {
+    "Código": "1644",
+    "Nombre": "CENTRO DE SALUD CASCO ANTIGUO CARTAGENA",
+    "Dirección": "C/ San Vicente, 2",
+    "Municipio": "Cartagena",
+    "Teléfono": "968123601",
+    "Latitud": "37.601230",
+    "Longitud": "-0.984560"
+  },
+  {
+    "Código": "1674",
+    "Nombre": "CENTRO DE SALUD DE ABANILLA",
+    "Dirección": "C/ Antonio Machado, 26",
+    "Municipio": "Abanilla",
+    "Teléfono": "968681250",
+    "Latitud": "38.204702",
+    "Longitud": "-1.03204702"
+  },
+  {
+    "Código": "1656",
+    "Nombre": "CENTRO DE SALUD DE ÁGUILAS NORTE",
+    "Dirección": "Avda. Democracia - Las Majadas",
+    "Municipio": "Águilas",
+    "Teléfono": "968419599",
+    "Latitud": "37.412340",
+    "Longitud": "-1.584560"
+  },
+  {
+    "Código": "1655",
+    "Nombre": "CENTRO DE SALUD DE ÁGUILAS SUR",
+    "Dirección": "Ctra. de Vera, s/n",
+    "Municipio": "Águilas",
+    "Teléfono": "968446014",
+    "Latitud": "37.402340",
+    "Longitud": "-1.594560"
+  },
+  {
+    "Código": "1676",
+    "Nombre": "CENTRO DE SALUD DE ALCANTARILLA",
+    "Dirección": "C/ Alcalde Pedro Cascales Vivancos, s/n",
+    "Municipio": "Alcantarilla",
+    "Teléfono": "968892722",
+    "Latitud": "37.971230",
+    "Longitud": "-1.214560"
+  },
+  {
+    "Código": "1630",
+    "Nombre": "CENTRO DE SALUD DE ALGUAZAS",
+    "Dirección": "C/ Gran Vía San Onofre, s/n",
+    "Municipio": "Alguazas",
+    "Teléfono": "968621262",
+    "Latitud": "38.051230",
+    "Longitud": "-1.244560"
+  },
+  {
+    "Código": "1678",
+    "Nombre": "CENTRO DE SALUD DE ALHAMA",
+    "Dirección": "Avda. Sierra Espuña, 14",
+    "Municipio": "Alhama de Murcia",
+    "Teléfono": "968631700",
+    "Latitud": "37.851230",
+    "Longitud": "-1.424560"
+  },
+  {
+    "Código": "1673",
+    "Nombre": "CENTRO DE SALUD DE BLANCA",
+    "Dirección": "C/ Federico Garcia Lorca, 40-41",
+    "Municipio": "Blanca",
+    "Teléfono": "968459202",
+    "Latitud": "38.178940",
+    "Longitud": "-1.375640"
+  },
+  {
+    "Código": "1670",
+    "Nombre": "CENTRO DE SALUD DE BULLAS",
+    "Dirección": "C/ Francisco Puerta González conde, s/n",
+    "Municipio": "Bullas",
+    "Teléfono": "968652161",
+    "Latitud": "38.045670",
+    "Longitud": "-1.674560"
+  },
+  {
+    "Código": "1669",
+    "Nombre": "CENTRO DE SALUD DE CALASPARRA",
+    "Dirección": "C/ Sanidad,s/n",
+    "Municipio": "Calasparra",
+    "Teléfono": "968720300",
+    "Latitud": "38.261230",
+    "Longitud": "-1.694560"
+  },
+  {
+    "Código": "1635",
+    "Nombre": "CENTRO DE SALUD DE CARAVACA",
+    "Dirección": "C/ Junquicos, s/n",
+    "Municipio": "Caravaca de la Cruz",
+    "Teléfono": "968702412",
+    "Latitud": "38.105670",
+    "Longitud": "-1.864560"
+  },
+  {
+    "Código": "1677",
+    "Nombre": "CENTRO DE SALUD DE CEUTI",
+    "Dirección": "Avda. De las Farolas,s/n",
+    "Municipio": "Ceutí",
+    "Teléfono": "968691344",
+    "Latitud": "38.071230",
+    "Longitud": "-1.274560"
+  },
+  {
+    "Código": "1675",
+    "Nombre": "CENTRO DE SALUD DE CIEZA",
+    "Dirección": "Avda. De Italia, s/n",
+    "Municipio": "Cieza",
+    "Teléfono": "968762552",
+    "Latitud": "38.241230",
+    "Longitud": "-1.414560"
+  },
+  {
+    "Código": "7928",
+    "Nombre": "Centro de Salud de El Algar",
+    "Dirección": "C/ Mejorana, s/n - El Algar",
+    "Municipio": "Cartagena",
+    "Teléfono": "968135510",
+    "Latitud": "37.643450",
+    "Longitud": "-0.875640"
+  },
+  {
+    "Código": "1667",
+    "Nombre": "CENTRO DE SALUD DE JUMILLA",
+    "Dirección": "Avda. Reyes Católicos, s/n",
+    "Municipio": "Jumilla",
+    "Teléfono": "968782500",
+    "Latitud": "38.471230",
+    "Longitud": "-1.324560"
+  },
+  {
+    "Código": "1649",
+    "Nombre": "Centro de Salud de Mazarrón",
+    "Dirección": "Avda. Constitución, s/n",
+    "Municipio": "Mazarrón",
+    "Teléfono": "968590411",
+    "Latitud": "37.600646",
+    "Longitud": "-1.315192"
+  },
+  {
+    "Código": "1661",
+    "Nombre": "CENTRO DE SALUD DE MULA",
+    "Dirección": "Avda. Juan Viñegla,s/n",
+    "Municipio": "Mula",
+    "Teléfono": "968637045",
+    "Latitud": "38.041230",
+    "Longitud": "-1.494560"
+  },
+  {
+    "Código": "1640",
+    "Nombre": "CENTRO DE SALUD DE SAN ANDRÉS",
+    "Dirección": "C/ Escultor Sánchez Lozano, s/n",
+    "Municipio": "Murcia",
+    "Teléfono": "968344800",
+    "Latitud": "37.985670",
+    "Longitud": "-1.134560"
+  },
+  {
+    "Código": "1654",
+    "Nombre": "CENTRO DE SALUD DE SAN PEDRO DEL PINATAR",
+    "Dirección": "Avda. de las Salinas, 50",
+    "Municipio": "San Pedro del Pinatar",
+    "Teléfono": "968182062",
+    "Latitud": "37.8342381",
+    "Longitud": "-0.7837723"
+  },
+  {
+    "Código": "1641",
+    "Nombre": "CENTRO DE SALUD DE SANTA MARÍA DE GRACIA",
+    "Dirección": "C/ Arturo Duperier, s/n",
+    "Municipio": "Murcia",
+    "Teléfono": "968290209",
+    "Latitud": "38.001230",
+    "Longitud": "-1.134560"
+  },
+  {
+    "Código": "1672",
+    "Nombre": "CENTRO DE SALUD DE TOTANA",
+    "Dirección": "C/ Cruz de los Hortelanos,s/n",
+    "Municipio": "Totana",
+    "Teléfono": "968421111",
+    "Latitud": "37.765670",
+    "Longitud": "-1.494560"
+  },
+  {
+    "Código": "1642",
+    "Nombre": "CENTRO DE SALUD DE VISTA ALEGRE - LA FLOTA",
+    "Dirección": "Paseo Ingeniero Sebastián Feringan, 18",
+    "Municipio": "Murcia",
+    "Teléfono": "968242439",
+    "Latitud": "38.001230",
+    "Longitud": "-1.124560"
+  },
+  {
+    "Código": "1636",
+    "Nombre": "CENTRO DE SALUD DE VISTABELLA",
+    "Dirección": "C/ Alicante, s/n",
+    "Municipio": "Murcia",
+    "Teléfono": "968340300",
+    "Latitud": "37.981230",
+    "Longitud": "-1.124560"
+  },
+  {
+    "Código": "9315",
+    "Nombre": "CENTRO DE SALUD DEL BARRIO FRANCÉS",
+    "Dirección": "Avda. Astudillo, 77",
+    "Municipio": "Puerto Lumbreras",
+    "Teléfono": "968400139",
+    "Latitud": "37.561230",
+    "Longitud": "-1.814560"
+  },
+  {
+    "Código": "9314",
+    "Nombre": "Centro de Salud del Esparragal",
+    "Dirección": "C/ Río Duero, s/n",
+    "Municipio": "Puerto Lumbreras",
+    "Teléfono": "968483023",
+    "Latitud": "37.551230",
+    "Longitud": "-1.834560"
+  },
+  {
+    "Código": "1682",
+    "Nombre": "Centro de Salud Este Ernest Punch Torre Pacheco",
+    "Dirección": "C/ Venecia, 1",
+    "Municipio": "Torre Pacheco",
+    "Teléfono": "968579311",
+    "Latitud": "37.748147",
+    "Longitud": "-0.958853"
+  },
+  {
+    "Código": "1666",
+    "Nombre": "CENTRO DE SALUD FRANCISCO PALAO-YECLA OESTE",
+    "Dirección": "C/ Antonio Ortega, nº 30",
+    "Municipio": "Yecla",
+    "Teléfono": "968793319",
+    "Latitud": "38.6129451",
+    "Longitud": "-1.1258579"
+  },
+  {
+    "Código": "1681",
+    "Nombre": "CENTRO DE SALUD FUENTE ÁLAMO",
+    "Dirección": "Rd.de Poniente, s/n",
+    "Municipio": "Fuente Álamo",
+    "Teléfono": "968598507",
+    "Latitud": "37.721230",
+    "Longitud": "-1.174560"
+  },
+  {
+    "Código": "6737",
+    "Nombre": "CENTRO DE SALUD LA ALCAYNA",
+    "Dirección": "C/ de la Iglesia s/n",
+    "Municipio": "Molina de Segura",
+    "Teléfono": "968430005",
+    "Latitud": "38.089049",
+    "Longitud": "-1.164137"
+  },
+  {
+    "Código": "1680",
+    "Nombre": "CENTRO DE SALUD LA UNIÓN",
+    "Dirección": "Avda. Cristo de los Mineros, s/n",
+    "Municipio": "La Unión",
+    "Teléfono": "968541716",
+    "Latitud": "37.621230",
+    "Longitud": "-0.874560"
+  },
+  {
+    "Código": "1634",
+    "Nombre": "CENTRO DE SALUD LAS TORRES DE COTILLAS",
+    "Dirección": "Avda. Reyes Católicos, s/n",
+    "Municipio": "Las Torres de Cotillas",
+    "Teléfono": "968626592",
+    "Latitud": "38.031230",
+    "Longitud": "-1.244560"
+  },
+  {
+    "Código": "1653",
+    "Nombre": "CENTRO DE SALUD LORCA CENTRO",
+    "Dirección": "Calle Floridablanca, 1",
+    "Municipio": "Lorca",
+    "Teléfono": "968463209",
+    "Latitud": "37.671230",
+    "Longitud": "-1.704560"
+  },
+  {
+    "Código": "1652",
+    "Nombre": "CENTRO DE SALUD LORCA SAN DIEGO",
+    "Dirección": "C/ Camino de los Sangradores, s/n",
+    "Municipio": "Lorca",
+    "Teléfono": "968479022",
+    "Latitud": "37.681230",
+    "Longitud": "-1.694560"
+  },
+  {
+    "Código": "1651",
+    "Nombre": "CENTRO DE SALUD LORCA SUR",
+    "Dirección": "C/ Talleres, s/n",
+    "Municipio": "Lorca",
+    "Teléfono": "968443308",
+    "Latitud": "37.661230",
+    "Longitud": "-1.714560"
+  },
+  {
+    "Código": "1632",
+    "Nombre": "CENTRO DE SALUD LORQUÍ",
+    "Dirección": "C/ La Noria, s/n",
+    "Municipio": "Lorquí",
+    "Teléfono": "968693539",
+    "Latitud": "38.081230",
+    "Longitud": "-1.254560"
+  },
+  {
+    "Código": "1650",
+    "Nombre": "CENTRO DE SALUD LOS ALCÁZARES",
+    "Dirección": "Ctra. de Balsicas, s/n",
+    "Municipio": "Los Alcázares",
+    "Teléfono": "968575800",
+    "Latitud": "37.741230",
+    "Longitud": "-0.854560"
+  },
+  {
+    "Código": "1643",
+    "Nombre": "CENTRO DE SALUD LOS BARREROS",
+    "Dirección": "C/ Astorga, 1",
+    "Municipio": "Cartagena",
+    "Teléfono": "968314193",
+    "Latitud": "37.621230",
+    "Longitud": "-0.974560"
+  },
+  {
+    "Código": "1665",
+    "Nombre": "CENTRO DE SALUD MARIANO YAGO YECLA",
+    "Dirección": "Avda. de la Feria, nº 12",
+    "Municipio": "Yecla",
+    "Teléfono": "968795143",
+    "Latitud": "38.616063",
+    "Longitud": "-1.106759"
+  },
+  {
+    "Código": "8776",
+    "Nombre": "Centro de Salud Mental de Yecla",
+    "Dirección": "C/ Águilas, nº 17",
+    "Municipio": "Yecla",
+    "Teléfono": "968750000",
+    "Latitud": "38.6128333",
+    "Longitud": "-1.1262767"
+  },
+  {
+    "Código": "7527",
+    "Nombre": "CENTRO DE SALUD MENTAL VICENTE CAMPILLO",
+    "Dirección": "Avda. Gabriel Cárceles, 2",
+    "Municipio": "Molina de Segura",
+    "Teléfono": "968641326",
+    "Latitud": "38.059784",
+    "Longitud": "-1.210733"
+  },
+  {
+    "Código": "1663",
+    "Nombre": "CENTRO DE SALUD MOLINA-DR.ANTONIO GARCIA",
+    "Dirección": "Avda. Gabriel Cárceles, 4",
+    "Municipio": "Molina de Segura",
+    "Teléfono": "968641110",
+    "Latitud": "38.060561",
+    "Longitud": "-1.211246"
+  },
+  {
+    "Código": "1668",
+    "Nombre": "CENTRO DE SALUD MORATALLA",
+    "Dirección": "C/ Tomás 'El Cura', 7",
+    "Municipio": "Moratalla",
+    "Teléfono": "968706239",
+    "Latitud": "38.188940",
+    "Longitud": "-1.895640"
+  },
+  {
+    "Código": "1638",
+    "Nombre": "CENTRO DE SALUD MURCIA CENTRO",
+    "Dirección": "C/ Escultor Sánchez Lozano, s/n",
+    "Municipio": "Murcia",
+    "Teléfono": "968394826",
+    "Latitud": "37.985670",
+    "Longitud": "-1.134560"
+  },
+  {
+    "Código": "1639",
+    "Nombre": "CENTRO DE SALUD MURCIA INFANTE",
+    "Dirección": "C/ Pintor Almela Costa, s/n",
+    "Municipio": "Murcia",
+    "Teléfono": "968343000",
+    "Latitud": "37.975670",
+    "Longitud": "-1.124560"
+  },
+  {
+    "Código": "6736",
+    "Nombre": "CENTRO DE SALUD PROFESOR JESÚS MARÍN LÓPEZ",
+    "Dirección": "C/ Enrique Bernal Capel, 6",
+    "Municipio": "Molina de Segura",
+    "Teléfono": "968389257",
+    "Latitud": "38.048527",
+    "Longitud": "-1.210545"
+  },
+  {
+    "Código": "1679",
+    "Nombre": "CENTRO DE SALUD PUERTO LUMBRERAS",
+    "Dirección": "C/ Región Murciana, 1",
+    "Municipio": "Puerto Lumbreras",
+    "Teléfono": "968402116",
+    "Latitud": "37.561603",
+    "Longitud": "-1.8107744"
+  },
+  {
+    "Código": "1646",
+    "Nombre": "CENTRO DE SALUD SAN ANTÓN",
+    "Dirección": "C/ Recoletos, 98",
+    "Municipio": "Cartagena",
+    "Teléfono": "968517572",
+    "Latitud": "37.611230",
+    "Longitud": "-0.994560"
+  },
+  {
+    "Código": "1657",
+    "Nombre": "CENTRO DE SALUD SAN JAVIER",
+    "Dirección": "C/ Cabo Ras - esquina Cabo Lara, s/n",
+    "Municipio": "San Javier",
+    "Teléfono": "968191866",
+    "Latitud": "37.811230",
+    "Longitud": "-0.834560"
+  },
+  {
+    "Código": "1648",
+    "Nombre": "CENTRO DE SALUD SANTA LUCÍA",
+    "Dirección": "C/ Pedro Jorquera, s/n",
+    "Municipio": "Cartagena",
+    "Teléfono": "968502713",
+    "Latitud": "37.591230",
+    "Longitud": "-0.974560"
+  },
+  {
+    "Código": "1633",
+    "Nombre": "CENTRO DE SALUD SANTOMERA",
+    "Dirección": "C/ La Gloria, 57",
+    "Municipio": "Santomera",
+    "Teléfono": "968861020",
+    "Latitud": "38.061230",
+    "Longitud": "-1.054560"
+  },
+  {
+    "Código": "5929",
+    "Nombre": "Centro de Salud Torre Pacheco Antonio Cózar",
+    "Dirección": "Plaza Rosa Regás, 1",
+    "Municipio": "Torre Pacheco",
+    "Teléfono": "968576433",
+    "Latitud": "37.748147",
+    "Longitud": "-0.958853"
+  },
+  {
+    "Código": "5650",
+    "Nombre": "Centro de Salud Totana Sur",
+    "Dirección": "Camino de la Estación, s/n",
+    "Municipio": "Totana",
+    "Teléfono": "968111968",
+    "Latitud": "37.7622304",
+    "Longitud": "-1.498479"
+  },
+  {
+    "Código": "1645",
+    "Nombre": "CENTRO DE SALUD VIRGEN DE LA CARIDAD",
+    "Dirección": "C/ Cabrera, s/n Barriada de la Caridad",
+    "Municipio": "Cartagena",
+    "Teléfono": "968228250",
+    "Latitud": "37.621230",
+    "Longitud": "-0.974560"
+  },
+  {
+    "Código": "7889",
+    "Nombre": "Centro Médico de Torre-Pacheco Privado",
+    "Dirección": "Avenida Europa, 2",
+    "Municipio": "Torre Pacheco",
+    "Teléfono": "968585058",
+    "Latitud": "37.739846",
+    "Longitud": "-0.951694"
+  },
+  {
+    "Código": "7529",
+    "Nombre": "CENTRO RESIDENCIAL PARA MAYORES BALLESOL",
+    "Dirección": "C/ Escultor Salzillo, 14",
+    "Municipio": "Molina de Segura",
+    "Teléfono": "968649922",
+    "Latitud": "38.076432",
+    "Longitud": "-1.160309"
+  },
+  {
+    "Código": "8956",
+    "Nombre": "CONSULTORIO MÉDICO DE MACISVENDA",
+    "Dirección": "Avda. del Carmen Nº 53.",
+    "Municipio": "Abanilla",
+    "Teléfono": "968689300",
+    "Latitud": "38.266007",
+    "Longitud": "-1.01826"
+  }
+]

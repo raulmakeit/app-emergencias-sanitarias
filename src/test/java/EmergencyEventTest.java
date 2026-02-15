@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Pruebas unitarias para la clase EmergencyEvent (Modelo).
- * Verifica la creacion del evento y las validaciones de datos.
+ * Verifica la creación del evento y las validaciones de datos.
  */
 class EmergencyEventTest {
 
@@ -18,12 +18,13 @@ class EmergencyEventTest {
 
     @BeforeEach
     void setUp() {
-        dummyUser = new UserData("Test User", "123456789", "Alergia Nuez");
+        // CORRECCIÓN: Ahora pasamos los 5 parámetros requeridos (Nombre, Tel, Info, Lat, Lon)
+        dummyUser = new UserData("Test User", "123456789", "Alergia Nuez", 38.267, -0.716);
     }
 
     @Test
     void testCreacionEventoValido() {
-        // GIVEN: Datos validos
+        // GIVEN: Datos válidos
         String tipo = "Sanitaria";
 
         // WHEN: Se crea el evento
@@ -43,7 +44,7 @@ class EmergencyEventTest {
         // THEN: Se espera que el constructor lance una IllegalArgumentException
         assertThrows(IllegalArgumentException.class, () -> {
             new EmergencyEvent(tipoNulo, ubicacionSimulada, dummyUser);
-        }, "Debe lanzar excepcion si el tipo es nulo.");
+        }, "Debe lanzar excepción si el tipo es nulo.");
     }
 
     @Test
@@ -55,6 +56,6 @@ class EmergencyEventTest {
         event.setEsGrave(true);
 
         // THEN: Se verifica el cambio
-        assertTrue(event.esGrave(), "La gravedad debe ser verdadera despues de la actualizacion.");
+        assertTrue(event.esGrave(), "La gravedad debe ser verdadera después de la actualización.");
     }
 }

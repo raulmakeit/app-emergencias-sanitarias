@@ -13,3 +13,12 @@
 [2025-11-30 19:31:52] ALERTA GRAVE | Tipo: Indefinido (TIMEOUT) | ID: e5049287-abe5-403c-8ddc-834ac00697be | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
 [2025-11-30 19:34:14] ALERTA GRAVE | Tipo: Sanitaria | ID: 7c398af0-7455-4a6f-9287-e75dc3b79991 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
 [2025-11-30 19:35:48] ALERTA GRAVE | Tipo: Indefinido (TIMEOUT) | ID: 8ba6add2-31df-4f21-b544-ef0c1cbab3ec | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2026-01-11 13:45:06] ALERTA GRAVE | Tipo: Sanitaria | ID: 7d532003-71a3-4086-abac-b954bdfd34d3 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2026-01-11 13:46:15] ALERTA GRAVE | Tipo: Sanitaria | ID: 37ee83ec-55d5-42e8-8bcf-614dfdb1a14c | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2026-01-11 14:09:42] ALERTA GRAVE | Tipo: Trafico | ID: c41b90d6-08da-4b07-bb61-1d6716828fd0 | Ubicacion: 38°16'47.1"N 0°42'57.0"W (Elche, España) | Usuario: Raul Parreño Agullo
+[2026-01-11 14:16:24] ALERTA GRAVE | Tipo: general | ID: 3819f6ac-297b-44dd-a96e-dacc71388e62 | Vitales: [HR: 106 bpm | SpO2: 99% | PA: 115/90] | Usuario: Raul Parreño Agullo
+[2026-01-11 14:17:05] ALERTA GRAVE | Tipo: Indefinido (TIMEOUT) | ID: c4b2e61c-da0c-4889-bde5-e897991f36b9 | Vitales: [HR: 67 bpm | SpO2: 90% | PA: 125/88] | Usuario: Raul Parreño Agullo
+[2026-01-11 14:19:26] ALERTA GRAVE | Tipo: General | ID: 2764ced2-d727-4275-af60-6252c949f4b8 | Vitales: [HR: 104 bpm | SpO2: 99% | PA: 123/104] | Usuario: Raul Parreño Agullo
+[2026-02-15 03:20:55] ALERTA GRAVE | Tipo: Indefinido (TIMEOUT) | ID: f5a44b20-578b-4a28-b944-0a7810f01cf8 | Vitales: [HR: 168 bpm | SpO2: 92% | PA: 130/100] | Usuario: Raul Parreño Agullo
+[2026-02-15 03:21:49] ALERTA GRAVE | Tipo: sanitaria | ID: d06286f9-9b2b-433d-b115-72820555d214 | Vitales: [HR: 98 bpm | SpO2: 90% | PA: 147/84] | Usuario: Raul Parreño Agullo
+[2026-02-15 05:32:32] ALERTA GRAVE | Tipo: sanitaria | ID: 44148232-211d-439f-9f0c-35f32c5ec1c1 | Vitales: [HR: 106 bpm | SpO2: 89% | PA: 145/76] | Ubicacion: 38,2265, -1,6188 | Usuario: Raúl Parreño Agulló

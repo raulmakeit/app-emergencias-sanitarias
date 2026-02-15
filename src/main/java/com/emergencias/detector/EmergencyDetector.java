@@ -2,212 +2,166 @@ package main.java.com.emergencias.detector;
 
 import main.java.com.emergencias.model.EmergencyEvent;
 import main.java.com.emergencias.model.UserData;
+import main.java.com.emergencias.model.CentroSalud;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Clase principal encargada de simular la detección o activación de una emergencia.
- * Implementa la lógica para disparadores manuales y automáticos, y la validación
- * para evitar falsos positivos.
+ * Clase avanzada encargada de la detección de emergencias.
+ * Combina el cálculo de proximidad geográfica con un sistema de confirmación
+ * basado en temporizadores (Dead Man Switch) para mayor seguridad.
  */
 public class EmergencyDetector {
 
-    // Nueva constante para el temporizador de confirmación en modo automático
     private static final int TIMEOUT_SECONDS = 10;
-
     private final Scanner scanner;
     private final UserData currentUser;
+    private final List<CentroSalud> centrosSalud;
 
     /**
-     * Constructor. Recibe los datos del usuario para adjuntarlos al evento.
-     * @param currentUser Datos del usuario.
+     * Constructor del detector.
+     * @param currentUser Datos del usuario actual para geolocalización.
+     * @param centrosSalud Lista de centros cargados desde el JSON.
      */
-    public EmergencyDetector(UserData currentUser) {
+    public EmergencyDetector(UserData currentUser, List<CentroSalud> centrosSalud) {
         this.currentUser = currentUser;
-        // Se recomienda usar un único Scanner que envuelve System.in
+        this.centrosSalud = centrosSalud;
         this.scanner = new Scanner(System.in);
     }
 
     /**
-     * Helper para leer input con timeout en modo automático o bloquear en modo manual.
-     * Esta implementación usa un Thread separado para aplicar un timeout real
-     * a la operación de lectura bloqueante (scanner.nextLine()).
-     * * @param timeoutSeconds Segundos de espera máxima.
-     * @param isAutomatic Indica si se aplica el timeout.
-     * @param prompt Mensaje a mostrar al usuario.
-     * @return El input del usuario o una cadena vacía si hay timeout.
-     */
-    private String readTimedInput(int timeoutSeconds, boolean isAutomatic, String prompt) {
-        System.out.println(prompt);
-
-        if (!isAutomatic) {
-            // MODO MANUAL: Espera indefinidamente (asume presencia del usuario)
-            // Se usa nextLine() que es la operación de lectura bloqueante.
-            return scanner.hasNextLine() ? scanner.nextLine() : "";
-        }
-
-        // --- MODO AUTOMÁTICO: Lógica robusta de temporizador usando Thread.join() ---
-
-        final String[] result = {""}; // Array para contener el resultado del hilo de lectura
-
-        // 1. Crear un hilo para realizar la lectura de input bloqueante
-        Thread inputThread = new Thread(() -> {
-            try {
-                // Esta llamada bloqueará el hilo, esperando el input (Enter)
-                String line = scanner.nextLine();
-                synchronized (result) {
-                    result[0] = line;
-                }
-            } catch (Exception e) {
-                // En caso de error, se deja el resultado vacío
-            }
-        });
-
-        inputThread.start(); // Iniciar la espera de input
-
-        try {
-            // 2. Esperar al hilo de input, pero con un límite de tiempo
-            inputThread.join((long) timeoutSeconds * 1000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
-        // 3. Evaluar el resultado
-        if (inputThread.isAlive()) {
-            // El hilo de input sigue vivo: Ocurrió el timeout.
-            // Se interrumpe (aunque nextLine() puede ignorarlo) y se retorna vacío.
-            inputThread.interrupt();
-            return "";
-        } else {
-            // El hilo terminó: Se recibió el input.
-            return result[0];
-        }
-    }
-
-    /**
-     * Simula la detección de un evento de emergencia, ofreciendo un disparador manual (consola)
-     * y un disparador automático (simulación de umbral).
-     * @param isAutomatic Indica si se simula un disparo automático (basado en umbral).
-     * @return EmergencyEvent si se detecta y confirma la emergencia, o null en caso contrario.
+     * Punto de entrada principal para detectar un evento.
+     * @param isAutomatic Indica si la activación es por sensores o manual.
+     * @return EmergencyEvent validado o null si se cancela o falla.
      */
     public EmergencyEvent detectEvent(boolean isAutomatic) {
         System.out.println("\n--- MÓDULO DE DETECCIÓN DE EMERGENCIA ---");
 
-        boolean isHighImpact = false;
+        // 1. Confirmación de activación inicial
+        if (!confirmarActivacion(isAutomatic)) return null;
 
-        if (!isAutomatic) {
-            // Activación manual: Aquí se mantiene el bloqueo, esperando el 'E'
-            System.out.println("Activación manual: Pulse 'E' o 'e' para simular una emergencia:");
-            String input = scanner.nextLine();
-            if (!input.equalsIgnoreCase("E")) {
-                System.out.println("Sistema en espera. No se detectó activación manual.");
-                return null;
-            }
-            isHighImpact = true;
-        } else {
-            // Simulación de detección automática (e.g., sensor de impacto)
-            int umbralActivacion = 50;
-            int fuerzaDetectada = new Random().nextInt(100);
-            System.out.printf("Detección automática simulada: Fuerza detectada: %d (Umbral: %d)\n", fuerzaDetectada, umbralActivacion);
-            if (fuerzaDetectada < umbralActivacion) {
-                System.out.println("Fuerza por debajo del umbral de activación. Sin emergencia inicial.");
-                return null;
-            }
-            isHighImpact = true;
-        }
+        // 2. Determinación del tipo de emergencia con Timeout
+        String tipoPrompt = isAutomatic
+                ? String.format("\n⚠️ MODO AUTO: Introduzca tipo (Sanitaria/Tráfico/General) en %d seg:", TIMEOUT_SECONDS)
+                : "Introduce tipo de emergencia (Sanitaria/Tráfico/General):";
 
-        if (!isHighImpact) {
-            return null;
-        }
-
-        String tipo = "General"; // Default inicial
-        String ubicacion = getSimulatedLocation();
-
-        // --- LÓGICA DE TIEMPO PARA EL TIPO DE EMERGENCIA ---
-
-        String tipoPrompt;
-        if (isAutomatic) {
-            tipoPrompt = String.format("\n⚠️ MODO AUTOMÁTICO: Introduzca el tipo de emergencia (Sanitaria/Tráfico/General) en %d segundos...\n", TIMEOUT_SECONDS);
-        } else {
-            tipoPrompt = "Introduce el tipo de emergencia (Sanitaria/Tráfico/General):";
-        }
-
-        // Se llama al helper con el timeout
         String tipoInput = readTimedInput(TIMEOUT_SECONDS, isAutomatic, tipoPrompt);
+        String tipo = tipoInput.trim().isEmpty() ? "General" : tipoInput.trim();
 
-        if (isAutomatic && tipoInput.isEmpty()) {
-            // TIMEOUT en la entrada del tipo de emergencia
-            tipo = "Indefinido (TIMEOUT)";
-            System.out.printf("\n🚨 TIMEOUT: No se recibió tipo. Activando alerta GRAVE por omisión (%d segundos). Se salta la confirmación de gravedad.\n", TIMEOUT_SECONDS);
-            EmergencyEvent newEvent = new EmergencyEvent(tipo, ubicacion, currentUser);
-            newEvent.setEsGrave(true);
-            // Retornar inmediatamente el evento grave
-            return newEvent;
-        } else {
-            // Se recibió input (o estamos en modo manual)
-            tipo = tipoInput.trim().isEmpty() ? "General" : tipoInput.trim();
-        }
+        // 3. Gestión de Ubicación (Viene de v1)
+        String locStr = (currentUser.getLatitudSimulada() == null || currentUser.getLongitudSimulada() == null)
+                ? "Ubicación desconocida (No disponible en JSON)"
+                : String.format("%.4f, %.4f", currentUser.getLatitudSimulada(), currentUser.getLongitudSimulada());
 
-        EmergencyEvent newEvent = new EmergencyEvent(tipo, ubicacion, currentUser);
+        EmergencyEvent newEvent = new EmergencyEvent(tipo, locStr, currentUser);
 
-        // Validación de gravedad (S/N confirmation)
+        // 4. Validación de gravedad con lógica de "Interruptor de Hombre Muerto" (Viene de v2)
         if (validateSeverity(newEvent, isAutomatic)) {
-            System.out.println("✅ Validación de gravedad exitosa. Evento de emergencia confirmado.");
+            System.out.println("✅ Validación exitosa. Evento confirmado.");
             return newEvent;
         } else {
-            System.out.println("❌ Alerta cancelada. La gravedad no fue confirmada (posible falso positivo).");
+            System.out.println("❌ Alerta cancelada (posible falso positivo).");
+            // Si es sanitaria y se cancela, sugerimos el centro más cercano (Viene de v1)
+            if (tipo.equalsIgnoreCase("sanitaria")) recomendarCentroCercano();
             return null;
         }
     }
 
-    /**
-     * Simula la validación de gravedad. Requiere confirmación manual para no ser un falso positivo.
-     * Incluye la lógica de 'dead man switch' (interruptor de hombre muerto) para el modo automático.
-     * @param event El evento a validar.
-     * @param isAutomatic Indica si el evento fue disparado automáticamente.
-     * @return true si la emergencia es confirmada como grave, false en caso contrario.
-     */
     private boolean validateSeverity(EmergencyEvent event, boolean isAutomatic) {
         System.out.println("\n--- VALIDACIÓN DE GRAVEDAD ---");
-        System.out.println("El sistema ha detectado una posible emergencia: " + event.getTipoEmergencia());
+        String prompt = isAutomatic
+                ? String.format("⚠️ MODO AUTO: ¿Confirma gravedad (S/N)? Sin respuesta se activará en %d seg.", TIMEOUT_SECONDS)
+                : "¿Confirma la gravedad (S/N)?:";
 
-        String confirmationPrompt;
-        if (isAutomatic) {
-            confirmationPrompt = String.format("⚠️ MODO AUTOMÁTICO: ¿Confirma la emergencia (S/N)? Debe responder en menos de %d segundos. Si no responde, se confirmará como GRAVE.", TIMEOUT_SECONDS);
-        } else {
-            confirmationPrompt = "¿Confirma la emergencia (S/N)? Su respuesta (S/N):";
-        }
+        String confirmation = readTimedInput(TIMEOUT_SECONDS, isAutomatic, prompt);
 
-        // Se llama al helper con el timeout
-        String confirmation = readTimedInput(TIMEOUT_SECONDS, isAutomatic, confirmationPrompt);
-
-        // --- LÓGICA DE TIMEOUT EN VALIDACIÓN S/N (SOLO MODO AUTOMÁTICO) ---
+        // Lógica de Timeout: Si no responde en automático, asumimos que está inconsciente y es GRAVE
         if (isAutomatic && confirmation.isEmpty()) {
-            System.out.printf("\n🚨 TIMEOUT: Confirmación S/N automática de emergencia grave por 'no-respuesta' (%d segundos).\n", TIMEOUT_SECONDS);
+            System.out.println("\n🚨 TIMEOUT: El usuario no responde. Activando protocolo de EMERGENCIA GRAVE.");
             event.setEsGrave(true);
             return true;
         }
 
-        // --- PROCESAR RESPUESTA (MANUAL O AUTOMÁTICA CON RESPUESTA) ---
         if (confirmation.equalsIgnoreCase("S")) {
             event.setEsGrave(true);
             return true;
-        } else if (confirmation.equalsIgnoreCase("N")) {
-            return false;
-        } else {
-            // Respuesta inválida (solo se llega aquí si hubo input inválido, no si hubo timeout)
-            System.out.println("Respuesta inválida. Cancelando validación.");
-            return false;
+        }
+        return false;
+    }
+
+    // --- LÓGICA GEOGRÁFICA (Integrada de v1) ---
+
+    private void recomendarCentroCercano() {
+        if (currentUser.getLatitudSimulada() == null || currentUser.getLongitudSimulada() == null) {
+            System.out.println("\n⚠️ No se puede recomendar centro: Sin coordenadas del usuario.");
+            return;
+        }
+
+        double miLat = currentUser.getLatitudSimulada();
+        double miLon = currentUser.getLongitudSimulada();
+        CentroSalud masCercano = null;
+        double menorDistancia = Double.MAX_VALUE;
+
+        System.out.println("\n--- 📍 BUSCANDO AYUDA CERCANA ---");
+        for (CentroSalud centro : centrosSalud) {
+            try {
+                double cLat = Double.parseDouble(centro.getLatitud().replace(",", "."));
+                double cLon = Double.parseDouble(centro.getLongitud().replace(",", "."));
+                double dist = calcularHaversine(miLat, miLon, cLat, cLon);
+
+                if (dist < menorDistancia) {
+                    menorDistancia = dist;
+                    masCercano = centro;
+                }
+            } catch (Exception e) { /* Error en formato de coordenadas del JSON */ }
+        }
+
+        if (masCercano != null) {
+            System.out.println("Sugerencia: " + masCercano.getNombre() + " (" + masCercano.getMunicipio() + ")");
+            System.out.printf("Distancia estimada: %.2f km\n", menorDistancia);
         }
     }
 
-    /**
-     * Simula la obtención de la ubicación.
-     * @return Una cadena que representa la ubicación.
-     */
-    private String getSimulatedLocation() {
-        // Uso de valores hardcodeados o input para simplificar
-        return "38°16'47.1\"N 0°42'57.0\"W (Elche, España)";
+    private double calcularHaversine(double lat1, double lon1, double lat2, double lon2) {
+        double R = 6371; // Radio de la Tierra en km
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+                        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    // --- LÓGICA DE INPUT CON TIEMPO (Integrada de v2) ---
+
+    private String readTimedInput(int timeoutSeconds, boolean isAutomatic, String prompt) {
+        System.out.println(prompt);
+        if (!isAutomatic) return scanner.hasNextLine() ? scanner.nextLine() : "";
+
+        final String[] result = {""};
+        Thread inputThread = new Thread(() -> {
+            try { if (scanner.hasNextLine()) result[0] = scanner.nextLine(); } catch (Exception e) {}
+        });
+
+        inputThread.start();
+        try { inputThread.join((long) timeoutSeconds * 1000); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+
+        if (inputThread.isAlive()) {
+            inputThread.interrupt();
+            return "";
+        }
+        return result[0];
+    }
+
+    private boolean confirmarActivacion(boolean isAuto) {
+        if (!isAuto) {
+            System.out.println("Activación manual: Pulse 'E' para simular emergencia:");
+            return scanner.nextLine().equalsIgnoreCase("E");
+        }
+        int fuerza = new Random().nextInt(100);
+        System.out.printf("Sensor detectado: %d (Umbral: 50)\n", fuerza);
+        return fuerza >= 50;
     }
 }

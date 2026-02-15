@@ -1,93 +1,93 @@
 package main.java.com.emergencias.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 import main.java.com.emergencias.alert.AlertSender;
 import main.java.com.emergencias.detector.EmergencyDetector;
 import main.java.com.emergencias.model.EmergencyEvent;
 import main.java.com.emergencias.model.UserData;
+import main.java.com.emergencias.model.CentroSalud;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.stream.Collectors;
+import java.util.List;
 
 /**
- * Clase controladora que orquesta el flujo completo de la detección y gestión de la emergencia.
- * Carga datos iniciales, inicia la detección y, si es exitosa, dispara la alerta.
+ * Controlador principal que orquestra el sistema de emergencias.
+ * Gestiona la carga de datos de usuario, la inicialización de módulos
+ * y el flujo desde la detección hasta el envío de la alerta.
  */
 public class EmergencyManager {
     private final EmergencyDetector detector;
     private final AlertSender sender;
     private UserData userData;
+    private List<CentroSalud> listaCentros;
 
+    /**
+     * Constructor del Manager.
+     * Carga dinámicamente el perfil del usuario y la red de centros de salud.
+     */
     public EmergencyManager() {
-        // 1. Cargar datos de usuario simulados al iniciar el sistema
-        this.userData = loadUserDataFromResource();
+        // 1. CARGA DE DATOS (Modernizada a JSON - v1)
+        this.userData = loadUserDataFromJson();
 
-        // 2. Inicializar EmergencyDetector y AlertSender
-        this.detector = new EmergencyDetector(userData);
-        this.sender = new AlertSender("112"); // Destino de emergencia hardcodeado como 112
+        CentroSaludLoader loader = new CentroSaludLoader();
+        this.listaCentros = loader.cargarCentros();
+
+        // 2. INICIALIZACIÓN DE MÓDULOS
+        // El detector ahora recibe tanto al usuario como la red de centros (v1)
+        this.detector = new EmergencyDetector(userData, listaCentros);
+        this.sender = new AlertSender("112");
     }
 
     /**
-     * Carga datos de usuario desde el archivo users.txt en resources.
-     * @return Una instancia de UserData con los datos cargados.
+     * Carga el perfil del usuario desde un archivo JSON en recursos.
+     * @return El primer objeto UserData encontrado o un usuario de fallback en caso de error.
      */
-    private UserData loadUserDataFromResource() {
+    private UserData loadUserDataFromJson() {
+        ObjectMapper mapper = new ObjectMapper();
         try {
-            // Se usa getResourceAsStream para acceder al archivo dentro del JAR o classpath
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    getClass().getClassLoader().getResourceAsStream("users.txt")));
+            List<UserData> usuarios = mapper.readValue(
+                    getClass().getClassLoader().getResourceAsStream("users.json"),
+                    new TypeReference<List<UserData>>() {}
+            );
 
-            // Leer la primera línea de datos (ignorando comentarios)
-            String dataLine = reader.lines()
-                    .filter(line -> !line.startsWith("#"))
-                    .collect(Collectors.toList())
-                    .get(0);
-
-            String[] data = dataLine.split(",");
-
-            if (data.length >= 3) {
-                String nombre = data[0].trim();
-                String telefono = data[1].trim();
-                String infoMedica = data[2].trim();
-                System.out.printf("✅ Datos de usuario cargados para: %s\n", nombre);
-                return new UserData(nombre, telefono, infoMedica);
-            } else {
-                throw new IllegalStateException("Formato de datos de usuario inválido en users.txt.");
+            if (usuarios != null && !usuarios.isEmpty()) {
+                return usuarios.get(0);
             }
+            throw new Exception("El archivo JSON está vacío.");
+
         } catch (Exception e) {
-            System.err.println("❌ Error al cargar datos de usuario (users.txt). Usando datos por defecto.");
-            System.err.println("Detalle: " + e.getMessage());
-            // Fallback: usar datos por defecto si la carga falla
-            return new UserData("Usuario Demo", "999000111", "Ninguna (Problema en carga)");
+            System.err.println("❌ ERROR DE CARGA DE USUARIO: " + e.getMessage());
+            // Fallback reconocible para evitar que el sistema se detenga
+            return new UserData("Usuario de Emergencia", "000", "Sin datos médicos", null, null);
         }
     }
 
     /**
-     * Inicia el ciclo de detección y notificación.
+     * Inicia el ciclo de vida del sistema de gestión de emergencias.
+     * @param isAutomatic Determina si el disparador es manual o por sensores.
      */
     public void startSystem(boolean isAutomatic) {
         System.out.println("\n=======================================================");
-        System.out.println("          GESTIÓN DE EMERGENCIAS                         ");
+        System.out.println("          SISTEMA DE GESTIÓN DE EMERGENCIAS            ");
         System.out.println("=======================================================");
 
         try {
-            // Detección y validación
+            // 1. Fase de detección y validación
             EmergencyEvent event = detector.detectEvent(isAutomatic);
 
             if (event != null) {
-                // Notificación si la detección y validación fue exitosa
+                // 2. Fase de captura de datos médicos (Integrado de v2)
+                System.out.println("▶️ Solicitando lectura de constantes vitales del usuario...");
+                event.leerSignosVitales();
+
+                // 3. Fase de comunicación
                 sender.sendAlert(event);
             } else {
-                System.out.println("\n▶️ Sistema finalizado. No se generó alerta.");
+                System.out.println("\n▶️ Sistema finalizado. No se generó alerta (Posible cancelación o falso positivo).");
             }
 
-        } catch (IllegalArgumentException e) {
-            // Manejo de excepciones específicas de validación
-            System.err.println("\n❌ ERROR DE VALIDACIÓN: " + e.getMessage());
         } catch (Exception e) {
-            // Manejo de cualquier otra excepción imprevista
             System.err.println("\n❌ ERROR CRÍTICO EN EL SISTEMA: " + e.getMessage());
-            e.printStackTrace();
         } finally {
             System.out.println("\n=======================================================");
             System.out.println("                Fin de la Ejecución                    ");
